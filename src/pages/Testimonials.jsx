@@ -1,9 +1,10 @@
 import React from 'react';
 import '../styles/App.css';
+import alishahbazPic from '../assets/pictures/alishahbaz.jpg';
 
 function Testimonials() {
   const testimonials = [
-    { name: "Ali Shahbaz", car: "Porsche 911", rating: 5, comment: "Exceptional service from start to finish. The team made buying my dream car effortless.", image: "👨" },
+    { name: "Ali Shahbaz", car: "Porsche 911", rating: 5, comment: "Exceptional service from start to finish. The team made buying my dream car effortless.", image: alishahbazPic },
     { name: "Abdullah Tariq", car: "Tesla Model S", rating: 5, comment: "I've never experienced such personalized attention. They found the perfect electric vehicle for me.", image: "👩" },
     { name: "Dawood ijaz", car: "Range Rover Velar", rating: 5, comment: "The certification process is thorough and transparent. Highly recommended!", image: "👨" },
     { name: "Awais", car: "Mercedes-Benz S-Class", rating: 5, comment: "From financing to delivery, every step was smooth and professional.", image: "👩" },
@@ -21,7 +22,13 @@ function Testimonials() {
       <div className="testimonials-grid">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="testimonial-card">
-            <div className="testimonial-avatar">{testimonial.image}</div>
+            <div className="testimonial-avatar">
+              {testimonial.image.length > 5 ? (
+                <img src={testimonial.image} alt={testimonial.name} style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto', display: 'block' }} />
+              ) : (
+                testimonial.image
+              )}
+            </div>
             <div className="testimonial-rating">
               {"★".repeat(testimonial.rating)}{"☆".repeat(5-testimonial.rating)}
             </div>
