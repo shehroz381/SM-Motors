@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/App.css';
 
 function CarDetail({ car }) {
   const navigate = useNavigate();
+  const [showSeller, setShowSeller] = useState(false);
+  const [testDriveStatus, setTestDriveStatus] = useState('');
   
   if (!car) return null;
+
+  const handleScheduleTestDrive = () => {
+    setTestDriveStatus('Test drive request sent successfully! We will contact you shortly.');
+    setTimeout(() => setTestDriveStatus(''), 5000);
+  };
 
   return (
     <div className="car-detail-screen">
@@ -51,9 +58,29 @@ function CarDetail({ car }) {
           </div>
           
           <div className="detail-actions">
-            <button className="btn-primary">Schedule Test Drive</button>
-            <button className="btn-secondary">Contact Seller</button>
+            <button className="btn-primary" onClick={handleScheduleTestDrive}>Schedule Test Drive</button>
+            <button className="btn-secondary" onClick={() => setShowSeller(!showSeller)}>
+              {showSeller ? 'Hide Seller Details' : 'Contact Seller'}
+            </button>
           </div>
+
+          {testDriveStatus && (
+            <div className="form-message success fade-in visible" style={{ marginTop: '1.5rem' }}>
+              {testDriveStatus}
+            </div>
+          )}
+
+          {showSeller && (
+            <div className="seller-details fade-in visible" style={{ marginTop: '1.5rem', padding: '1.5rem', background: 'var(--glass-bg)', borderRadius: '15px', border: 'var(--glass-border)', boxShadow: 'var(--shadow)' }}>
+              <h3 style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '1.2rem' }}>Seller Information</h3>
+              <div style={{ color: 'var(--text-light)', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                <p><strong style={{ color: 'var(--primary)' }}>Name:</strong> {car.sellerName || 'SM Motors Premium Dealership'}</p>
+                <p><strong style={{ color: 'var(--primary)' }}>Phone:</strong> {car.sellerPhone || '+92 300 1234567'}</p>
+                <p><strong style={{ color: 'var(--primary)' }}>Email:</strong> {car.sellerEmail || 'sales@smmotors.com'}</p>
+                <p><strong style={{ color: 'var(--primary)' }}>Location:</strong> {car.sellerLocation || 'Main Auto Market, Karachi'}</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
