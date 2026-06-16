@@ -962,6 +962,16 @@ body {
   flex: 1;
 }
 
+.form-actions .btn-secondary {
+  color: var(--primary);
+  border-color: #e4b23e;
+}
+
+.form-actions .btn-secondary:hover {
+  background: rgba(228, 178, 62, 0.1);
+  color: var(--primary);
+}
+
 /* About Screen */
 .about-screen {
   padding: 4rem 2rem;
