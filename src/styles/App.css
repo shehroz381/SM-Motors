@@ -5,24 +5,31 @@
 }
 
 :root {
-  --primary: #2a2a2a;
-  --secondary: #e4b23e;
+  --primary: #ffffff;
+  --secondary: #ffd700;
   --accent: #c92a2a;
-  --text: #333;
-  --text-light: #666;
-  --background: #fff;
-  --light-blue: #f5f9ff;
-  --hero-blue: #1a3a5c;
-  --hero-blue-dark: #0f2a4a;
-  --light-blue-bg: #e6f3ff;
-  --off-white: #f5f5f0;
-  --gray-bg: #f8f9fa;
-  --shadow: 0 10px 30px rgba(0,0,0,0.1);
-  --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
-  --transition: all 0.3s ease;
-  --navbar-bg: #1a1a2e;
-  --footer-bg: #1a2a4f;
-  --footer-dark: #0f1a33;
+  --text: #e2e8f0;
+  --text-light: #94a3b8;
+  --background: #0a1128;
+  --light-blue: transparent;
+  --hero-blue: #0a1128;
+  --hero-blue-dark: #050a18;
+  --light-blue-bg: transparent;
+  --off-white: transparent;
+  --gray-bg: transparent;
+  
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(10, 25, 47, 0.4);
+  --glass-bg-hover: rgba(10, 25, 47, 0.6);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-border-hover: 1px solid rgba(255, 215, 0, 0.3);
+  
+  --shadow: 0 10px 30px rgba(0,0,0,0.5);
+  --shadow-hover: 0 20px 40px rgba(0,0,0,0.7);
+  --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --navbar-bg: rgba(10, 17, 40, 0.8);
+  --footer-bg: rgba(5, 10, 24, 0.9);
+  --footer-dark: #020617;
 }
 
 body {
@@ -30,6 +37,37 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  background: linear-gradient(135deg, #020617 0%, #0a1128 50%, #0f172a 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Form Messages */
+.form-message {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-message.success {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+.form-message.error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
 }
 
 /* App Container */
@@ -50,7 +88,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -383,7 +421,7 @@ body {
   padding: 6rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: white;
+  
 }
 
 .section-title {
@@ -422,7 +460,10 @@ body {
 
 /* Car Card */
 .car-card {
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -434,6 +475,8 @@ body {
 .car-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .car-image {
@@ -513,7 +556,7 @@ body {
 
 /* Why Us Section */
 .why-us-section {
-  background: var(--light-blue);
+  
   padding: 6rem 2rem;
 }
 
@@ -528,7 +571,10 @@ body {
 .feature-card {
   text-align: center;
   padding: 2rem;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -549,6 +595,8 @@ body {
 .feature-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .feature-icon {
@@ -578,7 +626,7 @@ body {
   padding: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: white;
+  
 }
 
 .inventory-header {
@@ -611,19 +659,20 @@ body {
 .search-bar input {
   width: 100%;
   padding: 1rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 1rem;
   transition: var(--transition);
-  background: #f5f5f5;
-  color: #000000;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
 }
 
 .search-bar input:focus {
   outline: none;
   border-color: #e4b23e;
   box-shadow: 0 0 0 3px rgba(228, 178, 62, 0.1);
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .filters {
@@ -633,18 +682,19 @@ body {
 
 .filters select {
   padding: 0.8rem 1.5rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: var(--transition);
-  background: #f5f5f5;
-  color: #000000;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
 }
 
 .filters select:hover {
   border-color: #e4b23e;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Car Detail Screen */
@@ -652,7 +702,7 @@ body {
   padding: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: var(--light-blue);
+  
   min-height: calc(100vh - 80px);
 }
 
@@ -669,7 +719,7 @@ body {
 }
 
 .back-button:hover {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateX(-5px);
 }
 
@@ -677,7 +727,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   padding: 2rem;
   box-shadow: var(--shadow);
@@ -717,7 +770,10 @@ body {
   gap: 1.5rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--light-blue);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 10px;
 }
 
@@ -771,14 +827,17 @@ body {
 /* Sell Screen */
 .sell-screen {
   min-height: calc(100vh - 80px);
-  background: var(--light-blue);
+  
   padding: 4rem 2rem;
 }
 
 .sell-container {
   max-width: 900px;
   margin: 0 auto;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 20px;
   padding: 3rem;
   box-shadow: var(--shadow);
@@ -816,7 +875,10 @@ body {
 }
 
 .form-section {
-  background: #f9f9f9;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   padding: 1.5rem;
   margin-bottom: 0.5rem;
@@ -845,12 +907,13 @@ body {
 .form-group select,
 .form-group textarea {
   padding: 0.8rem 1rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 1rem;
   transition: var(--transition);
-  background: white;
-  color: #000000;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
 }
 
 .form-group input:focus,
@@ -869,18 +932,20 @@ body {
 }
 
 .upload-area {
-  border: 2px dashed #e1e1e1;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 2rem;
   text-align: center;
   cursor: pointer;
   transition: var(--transition);
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .upload-area:hover {
   border-color: #e4b23e;
-  background: rgba(228, 178, 62, 0.05);
+  background: rgba(228, 178, 62, 0.1);
 }
 
 .upload-label {
@@ -962,22 +1027,16 @@ body {
   flex: 1;
 }
 
-.form-actions .btn-secondary {
-  color: var(--primary);
-  border-color: #e4b23e;
-}
+.form-actions .btn-secondary { color: #ffffff; border-color: #e4b23e; }
 
-.form-actions .btn-secondary:hover {
-  background: rgba(228, 178, 62, 0.1);
-  color: var(--primary);
-}
+.form-actions .btn-secondary:hover { background: rgba(228, 178, 62, 0.1); color: #ffffff; }
 
 /* About Screen */
 .about-screen {
   padding: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: var(--light-blue);
+  
 }
 
 .about-header {
@@ -1060,7 +1119,10 @@ body {
 .stat-card {
   text-align: center;
   padding: 2rem;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   color: var(--primary);
   border-radius: 15px;
   box-shadow: var(--shadow);
@@ -1070,6 +1132,8 @@ body {
 .stat-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .stat-card h3 {
@@ -1103,7 +1167,10 @@ body {
 .team-member {
   text-align: center;
   padding: 2rem;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -1112,6 +1179,8 @@ body {
 .team-member:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .member-avatar {
@@ -1134,7 +1203,7 @@ body {
 .contact-screen {
   padding: 4rem 2rem;
   min-height: calc(100vh - 80px);
-  background: var(--light-blue);
+  
   display: flex;
   align-items: center;
 }
@@ -1142,7 +1211,10 @@ body {
 .contact-container {
   max-width: 1200px;
   margin: 0 auto;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 20px;
   padding: 4rem;
   box-shadow: var(--shadow);
@@ -1178,7 +1250,10 @@ body {
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background: var(--light-blue);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 10px;
   transition: var(--transition);
 }
@@ -1186,6 +1261,8 @@ body {
 .info-item:hover {
   transform: translateX(10px);
   box-shadow: var(--shadow);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .info-icon {
@@ -1213,12 +1290,13 @@ body {
 .contact-form input,
 .contact-form textarea {
   padding: 1rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 1rem;
   transition: var(--transition);
-  background: white;
-  color: #000000;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
 }
 
 .contact-form input:focus,
@@ -1233,7 +1311,7 @@ body {
   padding: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: var(--light-blue);
+  
 }
 
 .financing-container h1 {
@@ -1259,7 +1337,10 @@ body {
 .finance-card {
   text-align: center;
   padding: 2rem;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -1292,6 +1373,8 @@ body {
 .finance-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .finance-card.featured:hover {
@@ -1322,7 +1405,10 @@ body {
 }
 
 .calculator-section {
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   padding: 3rem;
   border-radius: 15px;
   box-shadow: var(--shadow);
@@ -1355,12 +1441,13 @@ body {
 
 .calc-input input {
   padding: 0.8rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   font-size: 1rem;
   transition: var(--transition);
-  background: white;
-  color: #000000;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
 }
 
 .calc-input input:focus {
@@ -1392,7 +1479,7 @@ body {
   padding: 4rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: var(--light-blue);
+  
 }
 
 .testimonials-header {
@@ -1420,7 +1507,10 @@ body {
 .testimonial-card {
   text-align: center;
   padding: 2rem;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 15px;
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -1441,6 +1531,8 @@ body {
 .testimonial-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+  border: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
 }
 
 .testimonial-avatar {
@@ -1474,9 +1566,10 @@ body {
   font-weight: 600;
 }
 
-/* Footer */
 .footer {
-  background: linear-gradient(135deg, #1a2a4f 0%, #0f1a33 100%);
+  background: linear-gradient(135deg, rgba(10, 17, 40, 0.95) 0%, rgba(5, 10, 24, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: white;
   padding: 4rem 2rem 1rem;
   margin-top: auto;
@@ -1558,11 +1651,11 @@ body {
 .newsletter input {
   flex: 1;
   padding: 0.8rem;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   font-size: 1rem;
-  color: #000000;
-  background: white;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .newsletter button {
@@ -1615,7 +1708,7 @@ body {
 /* Sign In Screen */
 .signin-screen {
   min-height: calc(100vh - 80px);
-  background: var(--light-blue);
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1625,7 +1718,10 @@ body {
 .signin-container {
   max-width: 450px;
   width: 100%;
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
   border-radius: 20px;
   padding: 2.5rem;
   box-shadow: var(--shadow);
@@ -1667,12 +1763,12 @@ body {
 
 .signin-form .form-group input {
   padding: 0.8rem 1rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 1rem;
   transition: var(--transition);
-  color: #000000;
-  background: white;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .signin-form .form-group input:focus {
@@ -1715,12 +1811,12 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: #e1e1e1;
+  background: rgba(255, 255, 255, 0.15);
   z-index: 1;
 }
 
 .divider span {
-  background: white;
+  background: var(--glass-bg);
   padding: 0 1rem;
   color: var(--text-light);
   font-size: 0.9rem;
@@ -1735,8 +1831,8 @@ body {
   gap: 0.8rem;
   width: 100%;
   padding: 0.8rem;
-  background: white;
-  border: 2px solid #e1e1e1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 500;
@@ -1746,7 +1842,7 @@ body {
 }
 
 .google-signin-btn:hover {
-  background: #f8f8f8;
+  background: rgba(255, 255, 255, 0.15);
   border-color: #e4b23e;
   transform: translateY(-2px);
   box-shadow: var(--shadow);
@@ -1834,7 +1930,9 @@ body {
     left: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: rgba(10, 17, 40, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1991,7 +2089,7 @@ body {
   content: '';
   width: 50px;
   height: 50px;
-  border: 5px solid #f3f3f3;
+  border: 5px solid rgba(255, 255, 255, 0.1);
   border-top: 5px solid #e4b23e;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -2020,7 +2118,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #0a1128;
 }
 
 ::-webkit-scrollbar-thumb {
