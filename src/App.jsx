@@ -15,6 +15,17 @@ import SignIn from './pages/SignIn';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
+// Scroll to top on navigation
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 // Wrapper component for Navbar to use navigate
 function NavbarWrapper() {
   const navigate = useNavigate();
@@ -106,6 +117,7 @@ function AppContent() {
 
   return (
     <div className="app">
+      <ScrollToTop />
       <NavbarWrapper />
       <main className="main-content">
         <Routes>

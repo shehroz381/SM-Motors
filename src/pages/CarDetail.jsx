@@ -17,7 +17,7 @@ function CarDetail({ car }) {
   return (
     <div className="car-detail-screen">
       <button className="back-button" onClick={() => navigate('/inventory')}>
-        ← Back to Inventory
+        Back to Inventory
       </button>
       
       <div className="detail-container">
@@ -75,9 +75,9 @@ function CarDetail({ car }) {
               <h3 style={{ color: 'var(--primary)', marginBottom: '1rem', fontSize: '1.2rem' }}>Seller Information</h3>
               <div style={{ color: 'var(--text-light)', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                 <p><strong style={{ color: 'var(--primary)' }}>Name:</strong> {car.sellerName || 'SM Motors Premium Dealership'}</p>
-                <p><strong style={{ color: 'var(--primary)' }}>Phone:</strong> {car.sellerPhone || '+92 300 1234567'}</p>
-                <p><strong style={{ color: 'var(--primary)' }}>Email:</strong> {car.sellerEmail || 'sales@smmotors.com'}</p>
-                <p><strong style={{ color: 'var(--primary)' }}>Location:</strong> {car.sellerLocation || 'Main Auto Market, Karachi'}</p>
+                <p><strong style={{ color: 'var(--primary)' }}>Phone:</strong> {car.sellerPhone || '+92 318 4459394'}</p>
+                <p><strong style={{ color: 'var(--primary)' }}>Email:</strong> {car.sellerEmail || 'smmotors@gmail.com'}</p>
+                <p><strong style={{ color: 'var(--primary)' }}>Location:</strong> {car.sellerLocation || 'Mission Chok Near MCB Bank Sahiwal.'}</p>
               </div>
             </div>
           )}

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/App.css';
+import { FaGoogle, FaFacebookF, FaTwitter, FaTelegramPlane } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -9,10 +10,10 @@ function Footer() {
           <h3>SM MOTOR</h3>
           <p>Your trusted partner in finding the perfect luxury vehicle.</p>
           <div className="social-links">
-            <span>📱</span>
-            <span>📘</span>
-            <span>📷</span>
-            <span>🐦</span>
+            <FaGoogle className="social-icon" />
+            <FaFacebookF className="social-icon" />
+            <FaTwitter className="social-icon" />
+            <FaTelegramPlane className="social-icon" />
           </div>
         </div>
         

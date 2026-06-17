@@ -1,15 +1,20 @@
 import React from 'react';
 import '../styles/App.css';
 import alishahbazPic from '../assets/pictures/alishahbaz.jpg';
+import TariqPic from '../assets/pictures/Tariq.jpg';
+import dawoodPic from '../assets/pictures/dawood.jpg';
+import awaisPic from '../assets/pictures/awais.jpg';
+import AkramPic from '../assets/pictures/Akram.webp';
+import afzalPic from '../assets/pictures/afzal.jpeg';
 
 function Testimonials() {
   const testimonials = [
-    { name: "Ali Shahbaz", car: "Porsche 911", rating: 5, comment: "Exceptional service from start to finish. The team made buying my dream car effortless.", image: alishahbazPic },
-    { name: "Abdullah Tariq", car: "Tesla Model S", rating: 5, comment: "I've never experienced such personalized attention. They found the perfect electric vehicle for me.", image: "👩" },
-    { name: "Dawood ijaz", car: "Range Rover Velar", rating: 5, comment: "The certification process is thorough and transparent. Highly recommended!", image: "👨" },
-    { name: "Awais", car: "Mercedes-Benz S-Class", rating: 5, comment: "From financing to delivery, every step was smooth and professional.", image: "👩" },
-    { name: "Arkam Rehman", car: "Audi R8", rating: 5, comment: "They went above and beyond to find exactly what I wanted. Outstanding service!", image: "👨" },
-    { name: "Afzal", car: "BMW M4", rating: 5, comment: "The attention to detail and customer care is unmatched. I'm a customer for life.", image: "👩" }
+    { name: "Ali Shahbaz", car: "Toyota Altis", rating: 5, comment: "Exceptional service from start to finish. The team made buying my dream car effortless.", image: alishahbazPic },
+    { name: "Abdullah Tariq", car: "Honda Civic RS Turbo", rating: 5, comment: "I've never experienced such personalized attention. They found the perfect electric vehicle for me.", image: TariqPic },
+    { name: "Dawood ijaz", car: "Toyta Prius", rating: 5, comment: "The certification process is thorough and transparent. Highly recommended!", image: dawoodPic },
+    { name: "Awais", car: "Mercedes S-Class", rating: 5, comment: "From financing to delivery, every step was smooth and professional.", image: awaisPic },
+    { name: "Arkam Rehman", car: "Havel H6-HEV", rating: 5, comment: "They went above and beyond to find exactly what I wanted. Outstanding service!", image: AkramPic },
+    { name: "Afzal", car: "BMW M3", rating: 5, comment: "The attention to detail and customer care is unmatched. I'm a customer for life.", image: afzalPic }
   ];
 
   return (
@@ -18,7 +23,7 @@ function Testimonials() {
         <h1>What Our Clients Say</h1>
         <p>Join thousands of satisfied customers who found their dream car with us</p>
       </div>
-      
+
       <div className="testimonials-grid">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="testimonial-card">
@@ -30,7 +35,7 @@ function Testimonials() {
               )}
             </div>
             <div className="testimonial-rating">
-              {"★".repeat(testimonial.rating)}{"☆".repeat(5-testimonial.rating)}
+              {"★".repeat(testimonial.rating)}{"☆".repeat(5 - testimonial.rating)}
             </div>
             <p className="testimonial-comment">"{testimonial.comment}"</p>
             <h4>{testimonial.name}</h4>
