@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/App.css';
 
 const modalOverlayStyle = {
@@ -66,6 +67,7 @@ function Financing() {
   };
 
   return (
+    <AnimatedPage>
     <div className="financing-screen">
       <div className="financing-container">
         <h1>Flexible Financing</h1>
@@ -202,6 +204,7 @@ function Financing() {
         </div>
       )}
     </div>
+    </AnimatedPage>
   );
 }
 

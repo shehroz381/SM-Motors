@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/App.css';
 
 function SignIn({ setCurrentScreen }) {
@@ -31,6 +32,7 @@ function SignIn({ setCurrentScreen }) {
   };
 
   return (
+    <AnimatedPage>
     <div className="signin-screen">
       <div className="signin-container">
         <div className="signin-header">
@@ -117,6 +119,7 @@ function SignIn({ setCurrentScreen }) {
         </form>
       </div>
     </div>
+    </AnimatedPage>
   );
 }
 

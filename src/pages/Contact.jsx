@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AnimatedPage from '../components/AnimatedPage';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -86,105 +87,107 @@ function Contact() {
   };
 
   return (
-    <div className="contact-screen">
-      <div className="contact-container">
-        <h1>Get In Touch</h1>
-        <p className="contact-subtitle">We're here to help you find your dream car</p>
-        
-        <div className="contact-content">
-          {/* Contact Info Section */}
-          <div className="contact-info">
-            <div className="info-item">
-              <span className="info-icon">📍</span>
-              <div>
-                <h3>Visit Us</h3>
-                <p>SM MOTOR MISSION CHOK NEAR MCB <br />BANK SAHIWAL</p>
-              </div>
-            </div>
-            
-            <div className="info-item">
-              <span className="info-icon">📞</span>
-              <div>
-                <h3>Call Us</h3>
-                <p>+92 318-4459394<br />Mon-Sat: 9am - 8pm</p>
-              </div>
-            </div>
-            
-            <div className="info-item">
-              <span className="info-icon">✉️</span>
-              <div>
-                <h3>Email Us</h3>
-                <p>shehrozm101@gmail.com<br />sm-motor@gmail.com</p>
-              </div>
-            </div>
-          </div>
+    <AnimatedPage>
+      <div className="contact-screen">
+        <div className="contact-container">
+          <h1>Get In Touch</h1>
+          <p className="contact-subtitle">We're here to help you find your dream car</p>
           
-          {/* Contact Form Section */}
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-row">
-              <input 
-                type="text" 
-                name="firstName"
-                placeholder="First Name" 
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-              />
-              <input 
-                type="text" 
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-              />
+          <div className="contact-content">
+            {/* Contact Info Section */}
+            <div className="contact-info">
+              <div className="info-item">
+                <span className="info-icon">📍</span>
+                <div>
+                  <h3>Visit Us</h3>
+                  <p>SM MOTOR MISSION CHOK NEAR MCB <br />BANK SAHIWAL</p>
+                </div>
+              </div>
+              
+              <div className="info-item">
+                <span className="info-icon">📞</span>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>+92 318-4459394<br />Mon-Sat: 9am - 8pm</p>
+                </div>
+              </div>
+              
+              <div className="info-item">
+                <span className="info-icon">✉️</span>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>shehrozm101@gmail.com<br />sm-motor@gmail.com</p>
+                </div>
+              </div>
             </div>
             
-            <input 
-              type="email" 
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            
-            <input 
-              type="tel" 
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-            
-            <textarea 
-              name="message"
-              rows="5" 
-              placeholder="How can we help you?"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-            
-            {/* Message dikhane ke liye */}
-            {message.text && (
-              <div className={`form-message ${message.type}`}>
-                {message.text}
+            {/* Contact Form Section */}
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <input 
+                  type="text" 
+                  name="firstName"
+                  placeholder="First Name" 
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
+                <input 
+                  type="text" 
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                />
               </div>
-            )}
-            
-            <button 
-              type="submit" 
-              className="btn-primary"
-              disabled={loading}
-            >
-              {loading ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
+              
+              <input 
+                type="email" 
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              
+              <input 
+                type="tel" 
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+              
+              <textarea 
+                name="message"
+                rows="5" 
+                placeholder="How can we help you?"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+              
+              {/* Message dikhane ke liye */}
+              {message.text && (
+                <div className={`form-message ${message.type}`}>
+                  {message.text}
+                </div>
+              )}
+              
+              <button 
+                type="submit" 
+                className="btn-primary"
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </AnimatedPage>
   );
 }
 

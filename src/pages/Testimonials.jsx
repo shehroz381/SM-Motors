@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/App.css';
 import alishahbazPic from '../assets/pictures/alishahbaz.jpg';
 import TariqPic from '../assets/pictures/Tariq.jpg';
@@ -18,6 +19,7 @@ function Testimonials() {
   ];
 
   return (
+    <AnimatedPage>
     <div className="testimonials-screen">
       <div className="testimonials-header">
         <h1>What Our Clients Say</h1>
@@ -44,6 +46,7 @@ function Testimonials() {
         ))}
       </div>
     </div>
+    </AnimatedPage>
   );
 }
 

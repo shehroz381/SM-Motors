@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/App.css';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
@@ -118,6 +119,7 @@ function Sell({ setCurrentScreen }) {
   };
 
   return (
+    <AnimatedPage>
     <div className="sell-screen">
       <div className="sell-container">
         <h1>Sell Your Car</h1>
@@ -351,6 +353,7 @@ function Sell({ setCurrentScreen }) {
         </form>
       </div>
     </div>
+    </AnimatedPage>
   );
 }
 

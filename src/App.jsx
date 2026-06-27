@@ -49,6 +49,8 @@ function NavbarWrapper() {
   );
 }
 
+import { AnimatePresence } from 'framer-motion';
+
 // Main App Component
 function AppContent() {
   const [selectedCar, setSelectedCar] = useState(null);
@@ -120,18 +122,20 @@ function AppContent() {
       <ScrollToTop />
       <NavbarWrapper />
       <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} cars={cars.slice(0, 6)} />} />
-          <Route path="/home" element={<Home setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} cars={cars.slice(0, 6)} />} />
-          <Route path="/inventory" element={<Inventory cars={cars} setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} setSelectedCar={setSelectedCar} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
-          <Route path="/carDetail" element={<CarDetail car={selectedCar} setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} />} />
-          <Route path="/sell" element={<Sell setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/financing" element={<Financing />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/signin" element={<SignIn setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} />} />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} cars={cars.slice(0, 6)} />} />
+            <Route path="/home" element={<Home setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} cars={cars.slice(0, 6)} />} />
+            <Route path="/inventory" element={<Inventory cars={cars} setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} setSelectedCar={setSelectedCar} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />} />
+            <Route path="/carDetail" element={<CarDetail car={selectedCar} setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} />} />
+            <Route path="/sell" element={<Sell setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/financing" element={<Financing />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/signin" element={<SignIn setCurrentScreen={(screen) => navigate(`/${screen === 'home' ? '' : screen}`)} />} />
+          </Routes>
+        </AnimatePresence>
       </main>
       <Footer />
     </div>

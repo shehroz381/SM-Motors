@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CarCard from '../components/CarCard';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/App.css';
 
 function Inventory({ cars, setSelectedCar, searchQuery, setSearchQuery }) {
@@ -19,45 +20,47 @@ function Inventory({ cars, setSelectedCar, searchQuery, setSearchQuery }) {
     });
 
   return (
-    <div className="inventory-screen">
-      <div className="inventory-header">
-        <h1>Our Collection</h1>
-        <p>Discover {cars.length} exceptional vehicles</p>
-      </div>
-
-      <div className="inventory-filters">
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search by car name..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+    <AnimatedPage>
+      <div className="inventory-screen">
+        <div className="inventory-header">
+          <h1>Our Collection</h1>
+          <p>Discover {cars.length} exceptional vehicles</p>
         </div>
-        
-        <div className="filters">
-          <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
-            <option value="all">All Types</option>
-            <option value="Electric">Electric</option>
-            <option value="Gasoline">Gasoline</option>
-            <option value="Hybrid">Hybrid</option>
-          </select>
+
+        <div className="inventory-filters">
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search by car name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
           
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="featured">Featured</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="newest">Newest First</option>
-          </select>
+          <div className="filters">
+            <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
+              <option value="all">All Types</option>
+              <option value="Electric">Electric</option>
+              <option value="Gasoline">Gasoline</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+            
+            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest First</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="car-grid">
+          {filteredCars.map(car => (
+            <CarCard key={car.id} car={car} setSelectedCar={setSelectedCar} />
+          ))}
         </div>
       </div>
-
-      <div className="car-grid">
-        {filteredCars.map(car => (
-          <CarCard key={car.id} car={car} setSelectedCar={setSelectedCar} />
-        ))}
-      </div>
-    </div>
+    </AnimatedPage>
   );
 }
 
