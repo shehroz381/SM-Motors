@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CarCard from '../components/CarCard';
 import CarsByMake from '../components/CarsByMake';
+import UsedCarAdvice from '../components/UsedCarAdvice';
+import AutoStore from '../components/AutoStore';
 import AnimatedPage from '../components/AnimatedPage';
 import '../styles/App.css';
 
@@ -46,6 +48,8 @@ function Home({ cars }) {
 
         <CarsByMake />
 
+        <UsedCarAdvice />
+
         <section className="featured-section">
           <h2 className="section-title">Featured Vehicles</h2>
           <p className="section-subtitle">Hand-picked selection of exceptional cars</p>
@@ -60,6 +64,8 @@ function Home({ cars }) {
             </button>
           </div>
         </section>
+
+        <AutoStore />
 
         <section className="why-us-section">
           <h2 className="section-title">Why Choose SM MOTOR?</h2>

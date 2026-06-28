@@ -100,7 +100,7 @@ function Contact() {
                 <span className="info-icon">📍</span>
                 <div>
                   <h3>Visit Us</h3>
-                  <p>SM MOTOR MISSION CHOK NEAR MCB <br />BANK SAHIWAL</p>
+                  <p>Changan Motors<br />Sahiwal, Pakistan</p>
                 </div>
               </div>
               
@@ -184,6 +184,20 @@ function Contact() {
                 {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+          </div>
+          
+          {/* Google Map Embed */}
+          <div className="map-container" style={{ marginTop: '4rem', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.1)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)' }}>
+            <iframe 
+              src="https://maps.google.com/maps?q=Changan%20Motors%20Sahiwal&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="450" 
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%)' }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="SM Motors Location"
+            ></iframe>
           </div>
         </div>
       </div>
